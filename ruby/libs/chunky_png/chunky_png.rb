@@ -2,7 +2,7 @@
 
 # Basic requirements from standard library
 require "set"
-#require "zlib"
+require "pr/zlib"
 require "stringio"
 
 # ChunkyPNG - the pure ruby library to access PNG files.

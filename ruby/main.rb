@@ -1,5 +1,7 @@
-$:.unshift File.join(File.dirname(__FILE__), 'lib')
+$:.unshift File.join(File.dirname(__FILE__), 'libs', 'chunky_png')
+$:.unshift File.join(File.dirname(__FILE__), 'libs', 'pr')
 
+require 'pr/zlib'
 require 'chunky_png'
 
 # # Creating an image from scratch, save as an interlaced PNG
@@ -9,8 +11,8 @@ require 'chunky_png'
 # png.save('filename.png', :interlace => true)
 
 # Compose images using alpha blending.
-avatar = ChunkyPNG::Image.from_file('templates/image1.png')
-badge  = ChunkyPNG::Image.from_file('templates/image2.png')
+avatar = ChunkyPNG::Image.from_file('templates/image2.png')
+badge  = ChunkyPNG::Image.from_file('templates/image1.png')
 avatar.compose!(badge, 10, 10)
 avatar.save('composited.png', :fast_rgba) # Force the fast saving routine.
 

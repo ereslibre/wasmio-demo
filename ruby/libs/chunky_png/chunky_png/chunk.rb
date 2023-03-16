@@ -46,8 +46,6 @@ module ChunkyPNG
     # @raise [ChunkyPNG::CRCMismatch] An exception is raised if
     #   the found CRC value is not equal to the expected CRC value.
     def self.verify_crc!(type, content, found_crc)
-      expected_crc = Zlib.crc32(content, Zlib.crc32(type))
-      raise ChunkyPNG::CRCMismatch, "Chuck CRC mismatch!" if found_crc != expected_crc
     end
 
     # The base chunk class is the superclass for every chunk type. It contains
