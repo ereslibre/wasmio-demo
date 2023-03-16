@@ -14,7 +14,7 @@ require 'chunky_png'
 avatar = ChunkyPNG::Image.from_file('templates/image2.png')
 badge  = ChunkyPNG::Image.from_file('templates/image1.png')
 avatar.compose!(badge, 10, 10)
-avatar.save('composited.png', :fast_rgba) # Force the fast saving routine.
+avatar.save('image.png', :fast_rgba)
 
 # # Accessing metadata
 # image = ChunkyPNG::Image.from_file('with_metadata.png')
