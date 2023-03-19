@@ -1,0 +1,11 @@
+prefix=
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib/wasm32-wasi
+includedir=${prefix}/include
+
+Name: uuid
+Description: Universally unique id library
+Version: 1.0.3
+Requires:
+Cflags: -I${includedir}/uuid
+Libs: -L${libdir} -luuid -lwasi-emulated-getpid

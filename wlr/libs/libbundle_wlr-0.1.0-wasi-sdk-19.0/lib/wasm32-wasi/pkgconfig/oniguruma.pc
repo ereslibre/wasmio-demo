@@ -1,0 +1,13 @@
+prefix=
+exec_prefix=
+libdir=/lib/wasm32-wasi
+includedir=/include
+datarootdir=/share
+datadir=/share
+
+Name: oniguruma
+Description: Regular expression library
+Version: 6.9.8
+Requires:
+Libs: -L${libdir} -lonig
+Cflags: -I${includedir}
