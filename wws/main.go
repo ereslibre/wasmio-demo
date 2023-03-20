@@ -39,5 +39,7 @@ func installAndRunWWS() *demo.Run {
 		"bash -s -- --local",
 	))
 
+	r.Step(demo.S("Check documentation at https://workers.wasmlabs.dev/"), nil)
+
 	return r
 }
