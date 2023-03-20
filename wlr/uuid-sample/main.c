@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include <uuid.h>
 
 int main(int argc, char **argv) {
@@ -10,9 +12,10 @@ int main(int argc, char **argv) {
 #ifdef CGI
   printf("Content-Type: application/json\n");
   printf("\n");
-#endif
-
   printf("{\"data\":\"{\\\"uuid\\\":\\\"%s\\\"}\",\"base64\":false,\"headers\":{\"Content-Type\": \"application/json\"},\"kv\":{},\"status\":200}\n", uuid);
+#else
+  printf("%s\n", uuid);
+#endif
 
   return 0;
 }
