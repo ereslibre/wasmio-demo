@@ -46,9 +46,21 @@ func installAndRunWWS() *demo.Run {
 	))
 
 	r.Step(demo.S(
+		"Workers subtree",
+	), demo.S(
+		"tree my-workers",
+	))
+
+	r.Step(demo.S(
+		"Javascript worker code",
+	), demo.S(
+		"bat my-workers/js-basic/index.js",
+	))
+
+	r.Step(demo.S(
 		"Run wws",
 	), demo.S(
-		"./wws .",
+		"./wws my-workers",
 	))
 
 	r.Step(demo.S("Check documentation at https://workers.wasmlabs.dev/"), nil)
