@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	demo "github.com/saschagrunert/demo"
 	"github.com/urfave/cli/v2"
 )
@@ -17,10 +19,11 @@ func main() {
 }
 
 func setup(ctx *cli.Context) error {
-	return nil
+	return cleanup(ctx)
 }
 
 func cleanup(ctx *cli.Context) error {
+	os.Remove("wws")
 	return nil
 }
 
@@ -32,7 +35,8 @@ func installAndRunWWS() *demo.Run {
 	r.Step(demo.S(
 		"Install Wasm Workers Server (wws)",
 	), demo.S(
-		"curl -fsSL https://workers.wasmlabs.dev/install | bash -s -- --local",
+		"curl -fsSL https://workers.wasmlabs.dev/install |",
+		"bash -s -- --local",
 	))
 
 	return r
