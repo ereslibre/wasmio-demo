@@ -1,0 +1,14 @@
+spin_manifest_version = "1"
+name = "uuid-generator"
+version = "1.0.0"
+description = "A simple UUID generator."
+trigger = { type = "http", base = "/" }
+
+[[component]]
+id = "uuid"
+description = "A simple UUID generator."
+source = "../uuid-sample/uuid-cgi.wasm"
+# The component trigger. This component responds to HTTP requests to "/uuid"
+[component.trigger]
+executor = { type = "wagi"}
+route = "/uuid"
