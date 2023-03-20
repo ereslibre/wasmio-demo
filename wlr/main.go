@@ -35,6 +35,14 @@ func runPHP() *demo.Run {
 	return r
 }
 
+func runPHPInSpin() *demo.Run {
+	r := demo.NewRun(
+		"Run PHP in Spin",
+	)
+
+	return r
+}
+
 func runPython() *demo.Run {
 	r := demo.NewRun(
 		"Run Python",
