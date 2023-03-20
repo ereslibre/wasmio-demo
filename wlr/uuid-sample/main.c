@@ -7,7 +7,7 @@ int main(int argc, char **argv) {
   char *uuid = malloc(37);
   uuid_unparse_lower(binuuid, uuid);
 
-  printf("%s\n", uuid);
+  printf("{\"data\":\"%s\",\"base64\":false,\"headers\":{},\"kv\":{},\"status\":200}\n", uuid);
 
   return 0;
 }
