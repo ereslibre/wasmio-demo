@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
   printf("\n");
 #endif
 
-  printf("{\"data\":\"%s\",\"base64\":false,\"headers\":{},\"kv\":{},\"status\":200}\n", uuid);
+  printf("{\"data\":\"{\\\"uuid\\\":\\\"%s\\\"}\",\"base64\":false,\"headers\":{\"Content-Type\": \"application/json\"},\"kv\":{},\"status\":200}\n", uuid);
 
   return 0;
 }
