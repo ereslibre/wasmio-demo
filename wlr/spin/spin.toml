@@ -8,7 +8,6 @@ trigger = { type = "http", base = "/" }
 id = "uuid"
 description = "A simple UUID generator."
 source = "../uuid-sample/uuid-cgi.wasm"
-# The component trigger. This component responds to HTTP requests to "/uuid"
 [component.trigger]
 executor = { type = "wagi"}
 route = "/uuid"
