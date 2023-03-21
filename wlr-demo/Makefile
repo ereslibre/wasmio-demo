@@ -1,4 +1,4 @@
 .PHONY: php
 php:
 	@clear
-	go run . --run-php
+	@go run . --run-uuid

@@ -11,10 +11,7 @@ func main() {
 	d.Setup(setup)
 	d.Cleanup(cleanup)
 
-	d.Add(runPHP(), "run-php", "Run PHP")
-	d.Add(runPHPInSpin(), "run-php-in-spin", "Run PHP in spin")
-	d.Add(runPython(), "run-python", "Run Python")
-	d.Add(runPythonInDocker(), "run-python-in-docker", "Run Python in Docker")
+	d.Add(runUUID(), "run-uuid", "Run uuid")
 
 	d.Run()
 }
@@ -27,34 +24,34 @@ func cleanup(ctx *cli.Context) error {
 	return nil
 }
 
-func runPHP() *demo.Run {
+func runUUID() *demo.Run {
 	r := demo.NewRun(
-		"Run PHP",
+		"Run UUID",
 	)
 
-	return r
-}
+	r.Step(demo.S(
+		"Install library bundle",
+	), demo.S(
+		"tree libs",
+	))
 
-func runPHPInSpin() *demo.Run {
-	r := demo.NewRun(
-		"Run PHP in Spin",
-	)
+	r.Step(demo.S(
+		"Set up PKG_CONFIG_PATH",
+	), demo.S(
+		"tree $PKG_CONFIG_PATH",
+	))
 
-	return r
-}
+	r.Step(demo.S(
+		"Set up PKG_CONFIG_SYSROOT_DIR",
+	), demo.S(
+		"echo $PKG_CONFIG_SYSROOT_DIR",
+	))
 
-func runPython() *demo.Run {
-	r := demo.NewRun(
-		"Run Python",
-	)
-
-	return r
-}
-
-func runPythonInDocker() *demo.Run {
-	r := demo.NewRun(
-		"Run Python in Docker",
-	)
+	r.Step(demo.S(
+		"Check that pkg-config detects configuration files",
+	), demo.S(
+		"pkg-config --list-all",
+	))
 
 	return r
 }
