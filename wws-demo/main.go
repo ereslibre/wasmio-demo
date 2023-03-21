@@ -20,12 +20,12 @@ func main() {
 }
 
 func setup(ctx *cli.Context) error {
-	exec.Command("pkill", "-f", "npm")
+	exec.Command("pkill", "-x", "npm").Run()
 	return cleanup(ctx)
 }
 
 func cleanup(ctx *cli.Context) error {
-	exec.Command("pkill", "-f", "wws")
+	exec.Command("pkill", "-x", "wws").Run()
 	os.Remove("wws")
 	return nil
 }

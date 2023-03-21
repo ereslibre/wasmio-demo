@@ -1,4 +1,4 @@
-module ereslibre.es/wasmio/wws
+module ereslibre.es/wasmio/wws-demo
 
 go 1.19
 

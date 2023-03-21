@@ -1,4 +1,4 @@
-module ereslibre.es/wasmio/wlr
+module ereslibre.es/wasmio/wlr-demo
 
 go 1.19
 
