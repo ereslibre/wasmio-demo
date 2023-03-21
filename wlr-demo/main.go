@@ -96,7 +96,19 @@ func runUUID() *demo.Run {
 	r.Step(demo.S(
 		"Run uuid with spin",
 	), demo.S(
+		"bat spin/spin.toml",
+	))
+
+	r.Step(demo.S(
+		"Run uuid with spin",
+	), demo.S(
 		"spin up -f spin",
+	))
+
+	r.Step(demo.S(
+		"Run uuid in Apache with mod_wasm",
+	), demo.S(
+		"grep -A6 'IfModule wasm_module' mod_wasm/conf/httpd.conf",
 	))
 
 	r.Step(demo.S(
