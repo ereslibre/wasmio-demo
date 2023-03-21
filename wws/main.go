@@ -60,7 +60,7 @@ func installAndRunWWS() *demo.Run {
 	r.Step(demo.S(
 		"Run wws",
 	), demo.S(
-		"./wws my-workers",
+		"./wws my-workers &",
 	))
 
 	r.Step(demo.S("Check documentation at https://workers.wasmlabs.dev/"), nil)
