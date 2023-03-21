@@ -11,8 +11,9 @@ int main(int argc, char **argv) {
 
 #ifdef CGI
   printf("Content-Type: text/plain\n\n");
-  printf("%s\n", uuid);
-#elif defined(WWS)
+#endif
+
+#ifdef WWS
   printf("{\"data\":\"{\\\"uuid\\\":\\\"%s\\\"}\",\"base64\":false,\"headers\":{\"Content-Type\": \"application/json\"},\"kv\":{},\"status\":200}\n", uuid);
 #else
   printf("%s\n", uuid);
