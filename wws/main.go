@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"os/exec"
 
 	demo "github.com/saschagrunert/demo"
 	"github.com/urfave/cli/v2"
@@ -19,10 +20,12 @@ func main() {
 }
 
 func setup(ctx *cli.Context) error {
+	exec.Command("pkill", "-f", "npm")
 	return cleanup(ctx)
 }
 
 func cleanup(ctx *cli.Context) error {
+	exec.Command("pkill", "-f", "wws")
 	os.Remove("wws")
 	return nil
 }
@@ -64,6 +67,21 @@ func installAndRunWWS() *demo.Run {
 	))
 
 	r.Step(demo.S("Check documentation at https://workers.wasmlabs.dev/"), nil)
+
+	r.Step(demo.S("Let's run the same worker code, but in Cloudflare Workers"), nil)
+
+	r.Step(demo.S(
+		"Cloudflare Javascript worker code",
+	), demo.S(
+		"bat cf-workers/src/index.js",
+	))
+
+	r.Step(demo.S(
+		"Run wrangler",
+	), demo.S(
+		"cd cf-workers &&",
+		"npx wrangler dev -l &",
+	))
 
 	return r
 }

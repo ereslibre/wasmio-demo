@@ -12,7 +12,10 @@ const reply = (request) => {
   const body = JSON.stringify({ reason: "Definitely a teapot" });
 
   // Build a new response
-  return new Response(body, { status: 418, headers: { "x-generated-by": "cf-workers" } });
+  return new Response(body, {
+    status: 418,
+    headers: { "Content-Type": "application/json", "x-generated-by": "wasm-workers-server" }
+  });
 }
 
 // Subscribe to the Fetch event
