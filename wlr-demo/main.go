@@ -117,5 +117,7 @@ func runUUID() *demo.Run {
 		"make -C mod_wasm run",
 	))
 
+	// TODO: Add PHP button generator demo
+
 	return r
 }
