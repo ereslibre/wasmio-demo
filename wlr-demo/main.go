@@ -13,7 +13,7 @@ func main() {
 	d.Setup(setup)
 	d.Cleanup(cleanup)
 
-	d.Add(runUUID(), "run-uuid", "Run uuid")
+	d.Add(runUUID(), "run-uuid", "UUID demo")
 
 	d.Run()
 }
@@ -30,7 +30,7 @@ func cleanup(ctx *cli.Context) error {
 
 func runUUID() *demo.Run {
 	r := demo.NewRun(
-		"Run UUID",
+		"UUID demo",
 	)
 
 	r.Step(demo.S(
@@ -55,6 +55,12 @@ func runUUID() *demo.Run {
 		"Check that pkg-config detects configuration files",
 	), demo.S(
 		"pkg-config --list-all",
+	))
+
+	r.Step(demo.S(
+		"pkg-config: show uuid output",
+	), demo.S(
+		"pkg-config --cflags --libs uuid",
 	))
 
 	r.Step(demo.S(
